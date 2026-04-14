@@ -4,7 +4,6 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/assets/imagen/hero-bg.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,6 +46,7 @@
   font-size: 1.1rem;
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
+  will-change: transform, box-shadow;
 }
 
 .cta-button:hover {
@@ -79,6 +79,7 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid var(--border-color);
+  will-change: transform, box-shadow;
 }
 
 .feature-card:hover {
