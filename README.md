@@ -49,16 +49,55 @@ Sigue los siguientes pasos para correr este proyecto de manera local en tu entor
 florafauna/
 │
 ├── src/
+│   ├── index.html
+│   ├── main.ts
+│   ├── styles.css
 │   ├── app/
-│   │   ├── components/       # Componentes reusables (Header y Footer)
-│   │   ├── models/           # Interfaces de TypeScript (Species, Product)
-│   │   ├── pages/            # Componentes de Vistas (Inicio, etc.)
-│   │   └── services/         # Servicios de obtención de Datos
-│   │
-│   ├── assets/
-│   │   └── imagen/           # Carpeta dedicada a toda la multimedia (íconos y fondos)
-│   │
-│   └── index.html            # Archivo base y título (Chile Natural)
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── app.config.ts
+│   │   ├── app.routes.ts
+│   │   ├── components/
+│   │   │   ├── footer/
+│   │   │   │   └── footer.component.ts
+│   │   │   └── header/
+│   │   │       └── header.component.ts
+│   │   ├── models/
+│   │   │   ├── product.ts
+│   │   │   └── species.ts
+│   │   ├── pages/
+│   │   │   ├── catalog/
+│   │   │   │   └── catalog.component.ts
+│   │   │   ├── info-request/
+│   │   │   │   └── info-request.component.ts
+│   │   │   ├── inicio/
+│   │   │   │   ├── inicio.component.css
+│   │   │   │   ├── inicio.component.html
+│   │   │   │   └── inicio.component.ts
+│   │   │   ├── species-detail/
+│   │   │   │   └── species-detail.component.ts
+│   │   │   └── species-list/
+│   │   │       └── species-list.component.ts
+│   │   └── services/
+│   │       ├── catalog.service.ts
+│   │       └── species.service.ts
+│   └── assets/
+│       ├── .gitkeep
+│       └── imagen/
+│           ├── Alerce.jpg
+│           ├── almendras.png
+│           ├── CondorAndino.jpg
+│           ├── Copihue.jpg
+│           ├── favicon.ico
+│           ├── GorroHuemul.jpg
+│           ├── hero-bg.png
+│           ├── Huemul.jpg
+│           ├── PoleraCondor.jpg
+│           ├── PoleronChiporro.jpg
+│           ├── TazaZorro.jpg
+│           └── ZorroDarwin.jpg
 ```
 
 ---
