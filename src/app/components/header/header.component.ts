@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
         <a routerLink="/"><span class="icon">🍃</span> Chile Natural</a>
       </div>
       <nav class="nav-links">
+        <a routerLink="/inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
         <a routerLink="/species" routerLinkActive="active">Especies</a>
         <a routerLink="/catalog" routerLinkActive="active">Catálogo</a>
         <a routerLink="/request" routerLinkActive="active">Contacto</a>
