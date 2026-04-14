@@ -1,0 +1,93 @@
+Chile Natural: Flora y Fauna - Documento Descriptivo del Proyecto
+
+1. Descripción del Proyecto
+--------------------------------------------------
+La aplicación Chile Natural es una plataforma web interactiva desarrollada con Angular 17, cuyo propósito es promover y visibilizar la increíble biodiversidad endémica y autóctona de Chile. El sitio permite a los usuarios descubrir especies patrimoniales, vulnerables y en peligro (tanto en flora como fauna) mediante un directorio con su debida descripción visual y textual. 
+
+Adicionalmente, el ecosistema cuenta con un catálogo virtual de productos inspirados en la naturaleza local (como jockeys, tazones y prendas de vestir) y un formulario interactivo de contacto. El desarrollo fue construido bajo buenas prácticas modernas: implementando los nuevos Standalone Components de Angular (sin ngModules), servicios inyectables para manejo de datos, y diseño fuertemente responsivo con CSS nativo puro y Flexbox/Grid para asegurar su correcta visualización en cualquier dispositivo.
+
+2. Estructura del Sistema
+--------------------------------------------------
+A nivel de sistema de archivos, el proyecto adopta la arquitectura recomendada y modular de Angular. Todo el código fuente crucial reside en la carpeta src/:
+
+florafauna/
+│
+├── src/
+│   ├── index.html
+│   ├── main.ts
+│   ├── styles.css
+│   ├── app/
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   ├── app.config.ts
+│   │   ├── app.routes.ts
+│   │   ├── components/
+│   │   │   ├── footer/
+│   │   │   │   └── footer.component.ts
+│   │   │   └── header/
+│   │   │       └── header.component.ts
+│   │   ├── models/
+│   │   │   ├── product.ts
+│   │   │   └── species.ts
+│   │   ├── pages/
+│   │   │   ├── catalog/
+│   │   │   │   └── catalog.component.ts
+│   │   │   ├── info-request/
+│   │   │   │   └── info-request.component.ts
+│   │   │   ├── inicio/
+│   │   │   │   ├── inicio.component.css
+│   │   │   │   ├── inicio.component.html
+│   │   │   │   └── inicio.component.ts
+│   │   │   ├── species-detail/
+│   │   │   │   └── species-detail.component.ts
+│   │   │   └── species-list/
+│   │   │       └── species-list.component.ts
+│   │   └── services/
+│   │       ├── catalog.service.ts
+│   │       └── species.service.ts
+│   └── assets/
+│       ├── .gitkeep
+│       └── imagen/
+│           ├── Alerce.jpg
+│           ├── almendras.png
+│           ├── CondorAndino.jpg
+│           ├── Copihue.jpg
+│           ├── favicon.ico
+│           ├── GorroHuemul.jpg
+│           ├── hero-bg.png
+│           ├── Huemul.jpg
+│           ├── PoleraCondor.jpg
+│           ├── PoleronChiporro.jpg
+│           ├── TazaZorro.jpg
+│           └── ZorroDarwin.jpg
+
+3. Explicación de Componentes y Servicios
+--------------------------------------------------
+El proyecto utiliza un enfoque de separación de la lógica, por lo que existe una división clara entre lógica de vista y manejadores de información:
+
+* Componentes de Interfaz y Vistas (Pages / Components) *
+- AppComponent (app.component.ts): Componente raíz en donde corre la aplicación entera, encapsulando y orquestando el contenedor global <router-outlet>.
+- HeaderComponent / FooterComponent: Layouts estáticos compartidos entre todas las páginas. Header controla las ligas visuales de enrutamiento hacia las demás pantallas.
+- InicioComponent (inicio): Pantalla de bienvenida (Landing Page). Cuenta con un diseño tipo Hero y tarjetas introductorias.
+- SpeciesListComponent (species-list): Renderiza visualmente la galería o directorio de especies extraídas dinámicamente.
+- SpeciesDetailComponent (species-detail): Componente de vista pormenorizada (detalle). Lee una especie en particular y consume toda la página para exponer descripciones complejas o fotografías detalladas.
+- CatalogComponent (catalog): Un catálogo de compras tipo grilla para presentar visualmente el arreglo de productos provisto.
+- InfoRequestComponent (info-request): Despliega y valida un formulario de contacto para canalizar la comunicación de los usuarios con el sistema.
+
+* Servicios de Datos (Providers) *
+La obtención de datos está desacoplada mediante clases de Servicio, las cuales pueden inyectarse donde se les requiera para reutilizar información:
+- SpeciesService (species.service.ts): Actúa como la Mock-API de la flora y fauna, con funciones asíncronas / observables como getSpecies() para recuperar el arreglo de especímenes, y getSpeciesById() para buscar puntualmente dentro de ellos.
+- CatalogService (catalog.service.ts): Base de datos centralizada de los items de inventario (Tazones, Jockeys, Polerones) disponibles a través de getProducts().
+
+4. Flujo de Navegación
+--------------------------------------------------
+Las transiciones del sistema son gestionadas por el ruteador de Angular configurado en app.routes.ts. El funcionamiento se compone del siguiente flujo lógico:
+
+1. Entrada Principal (/ o /inicio): El ciclo de vida de navegación predeterminado empuja a cualquier usuario que entre en la raíz de la web directamente a la sección de Inicio, mediante una cláusula de redirección.
+2. Tablón Principal (/species): Accedido desde el Header o un botón "Ver Especies". Carga la cuadrícula global.
+3. Flujo de Detalle Parametrizado (/species/:id): Si el usuario cliquea sobre uno de los animales o plantas específicos de la cuadrícula, ocurre una transición de ruta por ID. Angular evalúa el parámetro de la URL temporal para montar en tiempo real una tarjeta de la especie sin necesitar componentes adicionales por cada ejemplar listado.
+4. Flujo de Tienda (/catalog): El usuario puede entrar en cualquier momento al mercado para observar artículos desde un ítem de menú fijo en la cabecera.
+5. Flujo de Contacto (/request): Dirige al formulario final.
+6. Manejo de Errores e Inconsistencias (**): Cualquier intento de manipulación que redirija a una URL del servidor que no exista en ruta será evaluado y regresado (redirección comodín) inteligentemente al Inicio, evitando pantallas de errores 404 del ciclo Angular.

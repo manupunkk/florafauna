@@ -20,85 +20,15 @@
 
 - **Framework:** Angular v17
 - **Lenguaje:** TypeScript, HTML5, CSS3 Nativo
-- **Estilos:** Variables CSS modernas, responsive design (adaptable a celulares y tablets), sistema de animaciones (fade-ins) y flexbox/grid.
-- **Enrutamiento (Routing):** Navegación fluida entre pantallas (Inicio, Especies, Catálogo, Contacto).
-- **Servicios:** Datos desacoplados e inyectables (`catalog.service.ts` y `species.service.ts`).
+- **Estilos:** Variables CSS modernas, responsive design, sistema de animaciones y flexbox/grid.
+- **Enrutamiento (Routing):** Navegación fluida entre pantallas.
+- **Servicios:** Datos desacoplados e inyectables.
 
 ## Instalación y Despliegue Local
 
-Sigue los siguientes pasos para correr este proyecto de manera local en tu entorno:
-
-1. **Requisitos previos:** Asegúrate de tener instalado [Node.js](https://nodejs.org/) (incluye NPM) y el [Angular CLI](https://angular.dev/tools/cli) en tu computadora.
-
-2. **Clonar/Abrir el repositorio:** Abre una terminal dentro de la carpeta raíz del proyecto (`florafauna`).
-
-3. **Instalar dependencias:** Ejecuta el siguiente comando para asegurarte de que se descarguen con éxito las librerías necesarias de Angular:
-   ```bash
-   npm install
-   ```
-
-4. **Correr el servidor:** Inicia la aplicación en modo desarrollo.
-   ```bash
-   ng serve --open
-   ```
-   > Al utilizar el flag `--open`, la página abrirá de forma automática en tu navegador web y estará en `http://localhost:4200/`. El servidor cuenta con Live-Reload por lo tanto cada vez que edites tu código e guardes, tu página se actualizará enseguida.
-
-## Estructura de Directorios Destacada
-
-```text
-florafauna/
-│
-├── src/
-│   ├── index.html
-│   ├── main.ts
-│   ├── styles.css
-│   ├── app/
-│   │   ├── app.component.css
-│   │   ├── app.component.html
-│   │   ├── app.component.spec.ts
-│   │   ├── app.component.ts
-│   │   ├── app.config.ts
-│   │   ├── app.routes.ts
-│   │   ├── components/
-│   │   │   ├── footer/
-│   │   │   │   └── footer.component.ts
-│   │   │   └── header/
-│   │   │       └── header.component.ts
-│   │   ├── models/
-│   │   │   ├── product.ts
-│   │   │   └── species.ts
-│   │   ├── pages/
-│   │   │   ├── catalog/
-│   │   │   │   └── catalog.component.ts
-│   │   │   ├── info-request/
-│   │   │   │   └── info-request.component.ts
-│   │   │   ├── inicio/
-│   │   │   │   ├── inicio.component.css
-│   │   │   │   ├── inicio.component.html
-│   │   │   │   └── inicio.component.ts
-│   │   │   ├── species-detail/
-│   │   │   │   └── species-detail.component.ts
-│   │   │   └── species-list/
-│   │   │       └── species-list.component.ts
-│   │   └── services/
-│   │       ├── catalog.service.ts
-│   │       └── species.service.ts
-│   └── assets/
-│       ├── .gitkeep
-│       └── imagen/
-│           ├── Alerce.jpg
-│           ├── almendras.png
-│           ├── CondorAndino.jpg
-│           ├── Copihue.jpg
-│           ├── favicon.ico
-│           ├── GorroHuemul.jpg
-│           ├── hero-bg.png
-│           ├── Huemul.jpg
-│           ├── PoleraCondor.jpg
-│           ├── PoleronChiporro.jpg
-│           ├── TazaZorro.jpg
-│           └── ZorroDarwin.jpg
-```
+1. **Requisitos previos:** Instalar Node.js y Angular CLI.
+2. **Instalar dependencias:** Ejecutar `npm install`.
+3. **Correr el servidor:** Ejecutar `ng serve --open`.
 
 ---
 *Este proyecto fue diseñado como parte de un trabajo universitario para la asignatura de desarrollo web.*
