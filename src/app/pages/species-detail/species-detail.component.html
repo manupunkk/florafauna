@@ -1,0 +1,31 @@
+<div class="detail-container" *ngIf="species">
+  <a routerLink="/species" class="back-link">← Volver al listado</a>
+  
+  <div class="detail-card">
+    <div class="img-section">
+      <img [src]="species.imageUrl" [alt]="species.name" />
+    </div>
+    <div class="info-section">
+      <span class="badge" [ngClass]="{'badge-flora': species.category === 'Flora', 'badge-fauna': species.category === 'Fauna'}">
+        {{ species.category }}
+      </span>
+      <h1>{{ species.name }}</h1>
+      <p class="scientific">{{ species.scientificName }}</p>
+      
+      <div class="status-box">
+        <h3>Estado de Conservación:</h3>
+        <p class="status-text">{{ species.conservationStatus }}</p>
+      </div>
+      
+      <div class="desc-box">
+        <h3>Descripción General</h3>
+        <p>{{ species.fullDescription }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!species && loaded">
+  <h2>Especie no encontrada.</h2>
+  <a routerLink="/species" class="back-link">Volver al listado</a>
+</div>

@@ -7,20 +7,8 @@ import { FooterComponent } from './components/footer/footer.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
-  template: `
-    <app-header></app-header>
-    <main class="main-content">
-      <router-outlet></router-outlet>
-    </main>
-    <app-footer></app-footer>
-  `,
-  styles: `
-    .main-content {
-      min-height: calc(100vh - 160px); /* header and footer approx height */
-      padding: 2rem;
-      background-color: var(--bg-color);
-    }
-  `
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Chile Natural: Flora y Fauna';

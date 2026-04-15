@@ -1,0 +1,5 @@
+.main-content {
+  min-height: calc(100vh - 160px); /* header and footer approx height */
+  padding: 2rem;
+  background-color: var(--bg-color);
+}

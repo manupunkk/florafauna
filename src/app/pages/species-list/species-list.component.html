@@ -1,0 +1,27 @@
+<div class="species-container">
+  <div class="page-header">
+    <h1>Explora nuestra Flora y Fauna Ecológica</h1>
+    <p>Conoce las especies más emblemáticas de Chile que requieren nuestra protección.</p>
+    
+    <div class="filters">
+      <button (click)="sortByName()" [class.active]="currentSort === 'name'">Ordenar A-Z</button>
+      <button (click)="sortByCategory()" [class.active]="currentSort === 'category'">Ordenar por Categoría</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div *ngFor="let item of speciesList" class="card">
+      <div class="card-img" [style.backgroundImage]="'url(' + item.imageUrl + ')'">
+        <span class="badge" [ngClass]="{'badge-flora': item.category === 'Flora', 'badge-fauna': item.category === 'Fauna'}">
+          {{ item.category }}
+        </span>
+      </div>
+      <div class="card-content">
+        <h3>{{ item.name }}</h3>
+        <p class="scientific-name">{{ item.scientificName }}</p>
+        <p class="short-desc">{{ item.shortDescription }}</p>
+        <a [routerLink]="['/species', item.id]" class="btn-detail">Ver detalle</a>
+      </div>
+    </div>
+  </div>
+</div>
